@@ -1,4 +1,5 @@
 var router = require("express").Router();
+var fs = require("fs");
 var db = [];
 var path = require("path");
 
@@ -49,3 +50,5 @@ router.delete("/api/notes/:id", function(req, res){
         res.json(db)
     });
 })
+
+module.exports = router;
