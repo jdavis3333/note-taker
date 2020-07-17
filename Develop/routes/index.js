@@ -32,3 +32,20 @@ router.post("/api/notes", function(req, res){
         res.json(db)
     });
 })
+
+router.delete("/api/notes/:id", function(req, res){
+    var newArr = [];
+    for (let i = 0; i < db.length; i++) {
+        if(db[i].id != req.params.id) {
+            newArr.push(db[i]);
+        }
+    }
+    db = newArr
+    fs.writeFileSync("./db/db.json", JSON.stringify(db), function(err){
+        if(err) {
+            throw err
+        }
+        console.log(db)
+        res.json(db)
+    });
+})
