@@ -17,6 +17,7 @@ router.get("/api/notes", function(req, res){
     res.json(db);
 })
 
+//create note, post to db, and create random ID
 router.post("/api/notes", function(req, res){
     var record = {
         id: db.length + Math.floor(Math.random()*100), 
